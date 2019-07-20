@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# bin/compile <build-dir> <cache-dir> <env-dir>
+
+### Configure environment
+
+set -o errexit    # always exit on error
+set -o pipefail   # don't ignore exit codes when piping output
+unset GIT_DIR     # Avoid GIT_DIR leak from previous build steps
+
+export BUILD_DIR=${1:-}
+export CACHE_DIR=${2:-}
+export ENV_DIR=${3:-}
+
+cd $BUILD_DIR
+bash ./bin/heroku-post-build.sh

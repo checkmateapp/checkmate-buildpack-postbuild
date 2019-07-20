@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# bin/detect <build-dir>
+
+echo 'Project that should have a bin/heroku-post-build.sh file defined'
+exit 0
