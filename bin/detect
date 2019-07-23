@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 # bin/detect <build-dir>
 
-echo 'Project that should have a bin/heroku-post-build.sh file defined'
+
+if [ -f "$1/bin/heroku-post-build.sh" ]; then
+  echo 'Found bin/heroku-post-build.sh -- this buildpack will call it!'
+  exit 0
+fi
+
+echo 'Project that should have a bin/heroku-post-build.sh did not have one defined!'
 exit 0
